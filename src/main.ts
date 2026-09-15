@@ -4,6 +4,8 @@ import './styles/components.css';
 import './styles/pages.css';
 import './styles/admin.css';
 import './styles/responsive.css';
+import { PublicLayout } from './components/PublicLayout';
+import { initializeMobileNavigation } from './components/MobileNavigation';
 
 const app = document.querySelector<HTMLDivElement>('#app');
 
@@ -11,35 +13,27 @@ if (!app) {
   throw new Error('Application root element #app was not found.');
 }
 
-app.innerHTML = `
-  <main>
-    <section class="section section--light">
-      <div class="container">
+const temporaryContent = `
+  <section class="section section--light">
+    <div class="container">
+      <div class="section-heading">
 
-        <div class="section-heading">
-          <p class="section-heading__eyebrow">
-            Business • Finance • Technology
-          </p>
+        <p class="section-heading__eyebrow">
+          Business • Finance • Technology
+        </p>
 
-          <h1 class="section-heading__title">
-            Building ideas into practical solutions.
-          </h1>
+        <h1 class="section-heading__title">
+          Moses Eyemonu
+        </h1>
 
-          <p class="section-heading__description">
-            A professional identity combining business thinking,
-            financial experience and growing technology capability.
-          </p>
-        </div>
-
-        <a class="btn btn--primary" href="#">
-          Primary Button
-        </a>
-
-        <a class="btn btn--secondary" href="#">
-          Secondary Button
-        </a>
+        <p class="section-heading__description">
+          Professional portfolio and content management system.
+        </p>
 
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
 `;
+
+app.innerHTML = PublicLayout(temporaryContent);
+initializeMobileNavigation();

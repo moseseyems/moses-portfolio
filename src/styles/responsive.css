@@ -22,6 +22,30 @@
     .btn {
         min-height: 46px;
     }
+
+    .site-header__inner {
+        min-height: 68px;
+    }
+
+    .site-nav {
+        display: none;
+    }
+
+    .mobile-menu-button {
+        display: block;
+    }
+
+    .site-footer__main {
+        flex-direction: column;
+    }
+
+    .site-footer__navigation {
+        gap: var(--space-8);
+    }
+
+    .site-footer__bottom {
+        flex-direction: column;
+    }
 }
 
 @media (max-width: 479px) {
