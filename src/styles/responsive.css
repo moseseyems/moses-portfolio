@@ -1,0 +1,31 @@
+@media (max-width: 1199px) {
+    :root {
+        --container-width: 960px;
+        --section-spacing: 5rem;
+    }
+}
+
+@media (max-width: 767px) {
+    :root {
+        --container-padding: 1.25rem;
+        --section-spacing: 4rem;
+    }
+
+    .section-heading {
+        margin-bottom: var(--space-6);
+    }
+
+    .section-heading__description {
+        font-size: var(--font-size-base);
+    }
+
+    .btn {
+        min-height: 46px;
+    }
+}
+
+@media (max-width: 479px) {
+    :root {
+        --container-padding: 1rem;
+    }
+}
