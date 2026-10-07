@@ -357,3 +357,67 @@
         font-size: 0.72rem;
     }
 }
+/* Insights */
+@media (max-width: 767px) {
+    .insights__header {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+        margin-bottom: 2.5rem;
+    }
+
+    .insights__header .section-heading__eyebrow {
+        grid-column: auto;
+        margin-bottom: 0;
+    }
+
+    .insights__title {
+        font-size: clamp(2.3rem, 11vw, 3.5rem);
+    }
+
+    .insights__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .insight-card {
+        min-height: 0;
+        padding: 1.75rem;
+    }
+}
+
+/* Contact */
+@media (max-width: 767px) {
+    .contact__container {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .contact__title {
+        font-size: clamp(2.5rem, 12vw, 3.8rem);
+    }
+
+    .contact__introduction {
+        font-size: 1rem;
+    }
+
+    .contact__action {
+        padding-top: 1.75rem;
+    }
+}
+
+/* Final mobile hero areas adjustment */
+@media (max-width: 767px) {
+    .hero__areas {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .hero__area {
+        width: 100%;
+        padding: 1rem 0;
+        border-bottom: 1px solid #dfe5ec;
+    }
+
+    .hero__area:last-child {
+        border-bottom: 0;
+    }
+}

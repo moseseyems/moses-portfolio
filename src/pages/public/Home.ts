@@ -443,5 +443,116 @@ export function Home(): string {
         </section>
 
         ${createFeaturedProjects()}
+        
+        <section class="insights section" id="insights">
+            <div class="container">
+
+                <div class="insights__header">
+                    <p class="section-heading__eyebrow">
+                        Insights
+                    </p>
+
+                    <h2 class="insights__title">
+                        Ideas across business,
+                        <span>finance and technology.</span>
+                    </h2>
+
+                    <p class="insights__introduction">
+                        Practical perspectives shaped by experience in financial
+                        services, entrepreneurship and building digital solutions.
+                    </p>
+                </div>
+
+                <div class="insights__grid">
+
+                    <article class="insight-card">
+                        <span class="insight-card__category">Business</span>
+
+                        <h3>
+                            Building a professional business before you have a big budget
+                        </h3>
+
+                        <p>
+                            Why credibility, consistency and customer experience matter
+                            long before a business reaches scale.
+                        </p>
+
+                        <span class="insight-card__status">Insight coming soon</span>
+                    </article>
+
+                    <article class="insight-card">
+                        <span class="insight-card__category">Finance</span>
+
+                        <h3>
+                            Financial clarity is more important than simply making sales
+                        </h3>
+
+                        <p>
+                            Why understanding costs, cash flow and profitability matters
+                            when building a sustainable business.
+                        </p>
+
+                        <span class="insight-card__status">Insight coming soon</span>
+                    </article>
+
+                    <article class="insight-card">
+                        <span class="insight-card__category">Technology</span>
+
+                        <h3>
+                            Technology should solve a business problem, not create another one
+                        </h3>
+
+                        <p>
+                            Thinking about digital products from the problem first — before
+                            choosing frameworks, features or technical complexity.
+                        </p>
+
+                        <span class="insight-card__status">Insight coming soon</span>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+
+        <section class="contact section" id="contact">
+            <div class="container contact__container">
+
+                <div class="contact__content">
+                    <p class="section-heading__eyebrow">
+                        Get in Touch
+                    </p>
+
+                    <h2 class="contact__title">
+                        Let's connect and
+                        <span>create something valuable.</span>
+                    </h2>
+
+                    <p class="contact__introduction">
+                        Whether it's a business opportunity, professional
+                        collaboration or a conversation around finance,
+                        entrepreneurship and technology, I'm open to connecting.
+                    </p>
+                </div>
+
+                <div class="contact__action">
+                    <span class="contact__label">Email</span>
+
+                    <a
+                        class="contact__email"
+                        href="mailto:moses@eymonkgroup.co.uk"
+                    >
+                        moses@eymonkgroup.co.uk
+                        <span aria-hidden="true">↗</span>
+                    </a>
+
+                    <p class="contact__note">
+                        Based in Scotland, United Kingdom.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
     `;
 }
