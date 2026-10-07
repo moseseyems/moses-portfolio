@@ -56,7 +56,7 @@ export function Home(): string {
                 <div class="hero__image-frame">
                     <img
                     class="hero__image"
-                    src="/images/moses-eyemonu.png"
+                    src="${import.meta.env.BASE_URL}images/moses-eyemonu.png"
                     alt="Moses Eyemonu"
                     />
                 </div>

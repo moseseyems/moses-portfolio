@@ -23,7 +23,7 @@ export const projects: Project[] = [
         'Prisma'
         ],
 
-        image: '/images/projects/eymonk-audit-system.webp',
+        image: `${import.meta.env.BASE_URL}images/projects/eymonk-audit-system.webp`,
 
         featured: true,
 
@@ -68,11 +68,11 @@ export const projects: Project[] = [
             ],
 
             screenshots: [
-                '/images/projects/eymonk-audit/dashboard.png',
-                '/images/projects/eymonk-audit/audit-workspace.png',
-                '/images/projects/eymonk-audit/findings.png',
-                '/images/projects/eymonk-audit/recommendation.png',
-                '/images/projects/eymonk-audit/report-workspace.png',
+                `${import.meta.env.BASE_URL}images/projects/eymonk-audit/dashboard.png`,
+                `${import.meta.env.BASE_URL}images/projects/eymonk-audit/audit-workspace.png`,
+                `${import.meta.env.BASE_URL}images/projects/eymonk-audit/findings.png`,
+                `${import.meta.env.BASE_URL}images/projects/eymonk-audit/recommendation.png`,
+                `${import.meta.env.BASE_URL}images/projects/eymonk-audit/report-workspace.png`,
             ],
         },
 
@@ -100,7 +100,7 @@ export const projects: Project[] = [
         'CSS'
         ],
 
-        image: '/images/projects/beauty-brand.webp',
+        image: `${import.meta.env.BASE_URL}images/projects/beauty-brand.webp`,
 
         githubUrl:
         'https://github.com/moseseyems/beautyBrand',
@@ -146,9 +146,9 @@ export const projects: Project[] = [
             ],
 
             screenshots: [
-                '/images/projects/beauty-brand/homepage.png',
-                '/images/projects/beauty-brand/products.png',
-                '/images/projects/beauty-brand/cart.png',
+                `${import.meta.env.BASE_URL}images/projects/beauty-brand/homepage.png`,
+                `${import.meta.env.BASE_URL}images/projects/beauty-brand/products.png`,
+                `${import.meta.env.BASE_URL}images/projects/beauty-brand/cart.png`,
             ],
         },
 
@@ -176,7 +176,7 @@ export const projects: Project[] = [
         'CSS'
         ],
 
-        image: '/images/projects/personal-blog.webp',
+        image: `${import.meta.env.BASE_URL}images/projects/personal-blog.webp`,
         githubUrl: 'https://github.com/moseseyems/personal-blog-app',
         liveUrl: 'https://moseseyems.github.io/personal-blog-app/',
         featured: true,
@@ -220,9 +220,9 @@ export const projects: Project[] = [
             ],
 
             screenshots: [
-                '/images/projects/personal-blog/homepage.png',
-                '/images/projects/personal-blog/create-post.png',
-                '/images/projects/personal-blog/edit-post.png',
+                `${import.meta.env.BASE_URL}images/projects/personal-blog/homepage.png`,
+                `${import.meta.env.BASE_URL}images/projects/personal-blog/create-post.png`,
+                `${import.meta.env.BASE_URL}images/projects/personal-blog/edit-post.png`,
             ],
         },
 
