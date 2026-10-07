@@ -6,34 +6,71 @@ import './styles/admin.css';
 import './styles/responsive.css';
 import { PublicLayout } from './components/PublicLayout';
 import { initializeMobileNavigation } from './components/MobileNavigation';
+import { Home } from './pages/public/Home';
+import {
+    getCurrentRoute,
+    getProjectSlug,
+    initializeRouter,
+} from './router/router';
+import { getProjectBySlug } from './data/projects';
+import { ProjectDetails } from './pages/public/ProjectDetails';
 
-const app = document.querySelector<HTMLDivElement>('#app');
+const appElement = document.querySelector<HTMLDivElement>('#app');
 
-if (!app) {
-  throw new Error('Application root element #app was not found.');
+if (!appElement) {
+    throw new Error('Application root element #app was not found.');
 }
 
-const temporaryContent = `
-  <section class="section section--light">
-    <div class="container">
-      <div class="section-heading">
+const app: HTMLDivElement = appElement;
 
-        <p class="section-heading__eyebrow">
-          Business • Finance • Technology
-        </p>
+document.addEventListener('click', (event) => {
+    const target = event.target as HTMLElement;
 
-        <h1 class="section-heading__title">
-          Moses Eyemonu
-        </h1>
+    const projectButton = target.closest<HTMLButtonElement>(
+        '[data-project-slug]'
+    );
 
-        <p class="section-heading__description">
-          Professional portfolio and content management system.
-        </p>
+    if (!projectButton) {
+        return;
+    }
 
-      </div>
-    </div>
-  </section>
-`;
+    const projectSlug = projectButton.dataset.projectSlug;
 
-app.innerHTML = PublicLayout(temporaryContent);
-initializeMobileNavigation();
+    if (!projectSlug) {
+        return;
+    }
+
+    window.location.hash = `project/${projectSlug}`;
+});
+
+function renderPage(route: string): void {
+    const projectSlug = getProjectSlug(route);
+
+    if (projectSlug) {
+      const project = getProjectBySlug(projectSlug);
+
+      if (project) {
+        app.innerHTML = PublicLayout(ProjectDetails(project));
+        initializeMobileNavigation();
+
+        window.scrollTo({
+          top: 0,
+          left: 0,
+          behavior: 'instant',
+        });
+
+        return;
+      }
+    }
+
+    app.innerHTML = PublicLayout(Home());
+    initializeMobileNavigation();
+}
+
+initializeRouter((route) => {
+    renderPage(route);
+});
+
+renderPage(getCurrentRoute());
+
+

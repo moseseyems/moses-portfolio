@@ -356,3 +356,166 @@ textarea.form-control {
 
     font-size: var(--font-size-sm);
 }
+
+/* =========================================================
+   PROJECT CARD
+   ========================================================= */
+
+.project-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 360px;
+    padding: 2rem;
+    overflow: hidden;
+
+    background: #ffffff;
+    border: 1px solid #dfe5ec;
+    border-radius: 24px;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    border-color: #b9c9dc;
+    box-shadow: 0 22px 55px rgba(6, 27, 51, 0.1);
+}
+
+.project-card__meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 2.25rem;
+}
+
+.project-card__category,
+.project-card__year {
+    margin: 0;
+    color: #0755a5;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.project-card__title {
+    margin: 0 0 1rem;
+    color: #061b33;
+    font-size: clamp(1.65rem, 2.2vw, 2.25rem);
+    line-height: 1.08;
+    letter-spacing: -0.035em;
+}
+
+.project-card__description {
+    margin: 0 0 1.75rem;
+    color: #64748b;
+    font-size: 0.98rem;
+    line-height: 1.75;
+}
+
+.project-card__technologies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+    margin: 0 0 2rem;
+    padding: 0;
+    list-style: none;
+}
+
+.project-card__technology {
+    padding: 0.5rem 0.8rem;
+    color: #29435f;
+    background: #f1f5f9;
+    border: 1px solid #e2e8f0;
+    border-radius: 999px;
+    font-size: 0.76rem;
+    font-weight: 600;
+}
+
+.project-card__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    width: fit-content;
+    margin-top: auto;
+
+    padding: 0;
+    border: 0;
+    background: transparent;
+
+    color: #0755a5;
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-weight: 700;
+    line-height: 1.4;
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition:
+        gap 0.2s ease,
+        color 0.2s ease;
+}
+
+.project-card__link:hover {
+    gap: 0.7rem;
+    color: #043f7d;
+}
+
+/* Primary featured project */
+
+.project-card--featured {
+    grid-column: span 2;
+    min-height: 330px;
+    padding: 2.75rem;
+
+    background:
+        radial-gradient(
+            circle at 90% 10%,
+            rgba(36, 116, 205, 0.18),
+            transparent 35%
+        ),
+        #061f3b;
+
+    border-color: #163b61;
+}
+
+.project-card--featured:hover {
+    border-color: #3676b8;
+    box-shadow: 0 26px 65px rgba(6, 27, 51, 0.18);
+}
+
+.project-card--featured .project-card__category,
+.project-card--featured .project-card__year {
+    color: #71b2ff;
+}
+
+.project-card--featured .project-card__title {
+    max-width: 650px;
+    color: #ffffff;
+    font-size: clamp(2rem, 3vw, 3.25rem);
+}
+
+.project-card--featured .project-card__description {
+    max-width: 700px;
+    color: #b7c5d6;
+}
+
+.project-card--featured .project-card__technology {
+    color: #d9e9fa;
+    background: rgba(255, 255, 255, 0.07);
+    border-color: rgba(255, 255, 255, 0.13);
+}
+
+.project-card--featured .project-card__link {
+    color: #ffffff;
+}
+
+.project-card--featured .project-card__link:hover {
+    color: #7db7ff;
+}

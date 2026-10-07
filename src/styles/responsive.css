@@ -3,6 +3,36 @@
         --container-width: 960px;
         --section-spacing: 5rem;
     }
+
+    .hero__container {
+        gap: var(--space-7);
+    }
+
+    .hero__visual {
+        max-width: 400px;
+    }
+
+    .about__container {
+        gap: var(--space-7);
+    }
+
+    .experience__header {
+        gap: var(--space-6);
+    }
+
+    .experience-item,
+    .earlier-role {
+        grid-template-columns: 150px minmax(0, 1fr);
+    }
+
+    .earlier-role__sector {
+        grid-column: 2;
+    }
+
+    .ventures__header,
+    .venture-card__body {
+        gap: var(--space-6);
+    }
 }
 
 @media (max-width: 767px) {
@@ -46,10 +76,284 @@
     .site-footer__bottom {
         flex-direction: column;
     }
+
+    .hero {
+        min-height: auto;
+        padding-block: var(--space-7);
+    }
+
+    .hero__container {
+        grid-template-columns: 1fr;
+        gap: var(--space-7);
+    }
+
+    .hero__content {
+        max-width: none;
+    }
+
+    .hero__title {
+        font-size: clamp(2.75rem, 13vw, 4.5rem);
+    }
+
+    .hero__introduction {
+        font-size: var(--font-size-base);
+    }
+
+    .hero__areas {
+        gap: var(--space-5);
+    }
+
+    .hero__visual {
+        width: min(100%, 430px);
+
+        justify-self: center;
+    }
+
+    .hero__visual-card {
+        right: var(--space-3);
+        bottom: var(--space-3);
+    }
+
+    .about__container {
+        grid-template-columns: 1fr;
+        gap: var(--space-6);
+    }
+
+    .about__heading {
+        position: static;
+    }
+
+    .about__title {
+        max-width: 620px;
+    }
+
+    .about__pillars {
+        grid-template-columns: 1fr;
+    }
+
+    .experience__header {
+        grid-template-columns: 1fr;
+        gap: var(--space-5);
+    }
+
+    .experience__introduction {
+        max-width: 620px;
+    }
+
+    .experience-item {
+        grid-template-columns: 1fr;
+        gap: var(--space-4);
+    }
+
+    .experience-item__meta {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .experience-item__heading {
+        flex-direction: column;
+    }
+
+    .experience-item__sector {
+        align-self: flex-start;
+    }
+
+    .earlier-role {
+        grid-template-columns: 1fr;
+        gap: var(--space-2);
+    }
+
+    .earlier-role__sector {
+        grid-column: auto;
+    }
+
+    .ventures__header {
+        grid-template-columns: 1fr;
+        gap: var(--space-5);
+    }
+
+    .ventures__introduction {
+        max-width: 620px;
+    }
+
+    .venture-card__top {
+        padding: var(--space-5);
+    }
+
+    .venture-card__body {
+        grid-template-columns: 1fr;
+        gap: var(--space-6);
+
+        padding: var(--space-6) var(--space-5);
+    }
+
+    .venture-card__principle {
+        grid-template-columns: 1fr;
+        gap: var(--space-2);
+    }
+
+    .venture-card__footer {
+        padding: var(--space-5);
+    }
+
+    .project-details__hero {
+        padding: 3rem 0 3.5rem;
+    }
+
+    .project-details__back {
+        margin-bottom: 2.25rem;
+    }
+
+    .project-details__title {
+        font-size: clamp(2.6rem, 13vw, 4rem);
+        line-height: 1;
+    }
+
+    .project-details__description {
+        margin-top: 1.5rem;
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+
+    .project-details__technologies {
+        margin-top: 1.5rem;
+    }
+
+    .project-details__case-study {
+        padding: 4rem 0 5rem;
+    }
+
+    .project-details__section {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+        padding: 2.5rem 0;
+    }
+
+    .project-details__section p {
+        font-size: 1rem;
+    }
+
+    .project-details__list {
+        gap: 0.75rem;
+    }
 }
 
 @media (max-width: 479px) {
     :root {
         --container-padding: 1rem;
+    }
+
+    .hero__actions {
+        flex-direction: column;
+    }
+
+    .hero__actions .btn {
+        width: 100%;
+    }
+
+    .hero__areas {
+        justify-content: space-between;
+        gap: var(--space-3);
+    }
+
+    .hero__visual-card {
+        position: relative;
+        right: auto;
+        bottom: auto;
+
+        width: calc(100% - var(--space-5));
+        margin: calc(var(--space-5) * -1) auto 0;
+    }
+
+    .venture-card__top {
+        flex-direction: column;
+    }
+
+    .venture-card__identity {
+        flex-direction: column;
+    }
+
+    .venture-card__status {
+        align-self: flex-start;
+    }
+}
+
+/* =========================================================
+   SELECTED PROJECTS — RESPONSIVE
+   ========================================================= */
+
+/* Tablet */
+@media (max-width: 900px) {
+    .featured-projects {
+        padding: 5rem 0;
+    }
+
+    .featured-projects__header {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        margin-bottom: 2.5rem;
+    }
+
+    .featured-projects__intro {
+        max-width: 650px;
+    }
+
+    .featured-projects__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-card--featured {
+        grid-column: auto;
+    }
+    }
+
+
+    /* Mobile */
+    @media (max-width: 600px) {
+    .featured-projects {
+        padding: 4rem 0;
+    }
+
+    .featured-projects__header {
+        margin-bottom: 2rem;
+    }
+
+    .featured-projects__title {
+        font-size: clamp(2.25rem, 12vw, 3.25rem);
+    }
+
+    .featured-projects__intro {
+        font-size: 1rem;
+        line-height: 1.7;
+    }
+
+    .project-card,
+    .project-card--featured {
+        min-height: 390px;
+        padding: 1.5rem;
+        border-radius: 20px;
+    }
+
+    .project-card__meta {
+        margin-bottom: 1.75rem;
+    }
+
+    .project-card__title,
+    .project-card--featured .project-card__title {
+        font-size: 1.8rem;
+    }
+
+    .project-card__description {
+        font-size: 0.95rem;
+    }
+
+    .project-card__technologies {
+        gap: 0.45rem;
+    }
+
+    .project-card__technology {
+        padding: 0.45rem 0.7rem;
+        font-size: 0.72rem;
     }
 }
