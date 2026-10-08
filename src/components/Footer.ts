@@ -23,8 +23,8 @@ export function Footer(): string {
 
                     <a href="#about">About</a>
                     <a href="#experience">Experience</a>
+                    <a href="#ventures">Ventures</a>
                     <a href="#projects">Projects</a>
-                    <a href="#insights">Insights</a>
                     <a href="#contact">Contact</a>
                     </div>
 
@@ -32,7 +32,7 @@ export function Footer(): string {
                     <p class="site-footer__heading">Connect</p>
 
                     <a
-                        href="#"
+                        href="https://www.linkedin.com/in/moses-nkem-eyemonu-b225813a1/"
                         target="_blank"
                         rel="noopener noreferrer"
                     >
@@ -40,7 +40,7 @@ export function Footer(): string {
                     </a>
 
                     <a
-                        href="#"
+                        href="https://github.com/moseseyems"
                         target="_blank"
                         rel="noopener noreferrer"
                     >

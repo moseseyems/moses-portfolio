@@ -38,7 +38,7 @@ export const projects: Project[] = [
                 'The system brings the audit workflow into one structured application, allowing websites and audits to be managed through dedicated workspaces while connecting audit checks, findings, evidence, scoring and reporting.',
 
             role:
-                'I developed the system as a practical business and technical project for EYMONK GROUP LTD, working across product planning, application structure, frontend development, backend integration, data modelling, testing and deployment.',
+                'I led the development of the system as a practical business and technical project for EYMONK GROUP LTD, working across product planning, application structure, frontend development, backend integration, data modelling, testing and deployment.',
 
             keyFeatures: [
                 'Client and website management',
@@ -50,7 +50,7 @@ export const projects: Project[] = [
                 'Audit and pillar scoring',
                 'Report workspace and report generation',
                 'Draft and finalised report management',
-                'Production audit initialization',
+                'Production audit initialisation',
             ],
 
             challenges: [

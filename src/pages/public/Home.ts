@@ -217,7 +217,7 @@ export function Home(): string {
                     <p class="experience-item__development">
                         Since October 2025, my responsibilities have expanded within the
                         High Risk Vulnerable Care team. I have also been progressively
-                        integrated into the support function for newly employed colleagues
+                        integrated into the support function for new colleagues
                         during training, alongside varied customer, administrative and
                         team-support responsibilities.
                     </p>
@@ -444,77 +444,6 @@ export function Home(): string {
 
         ${createFeaturedProjects()}
         
-        <section class="insights section" id="insights">
-            <div class="container">
-
-                <div class="insights__header">
-                    <p class="section-heading__eyebrow">
-                        Insights
-                    </p>
-
-                    <h2 class="insights__title">
-                        Ideas across business,
-                        <span>finance and technology.</span>
-                    </h2>
-
-                    <p class="insights__introduction">
-                        Practical perspectives shaped by experience in financial
-                        services, entrepreneurship and building digital solutions.
-                    </p>
-                </div>
-
-                <div class="insights__grid">
-
-                    <article class="insight-card">
-                        <span class="insight-card__category">Business</span>
-
-                        <h3>
-                            Building a professional business before you have a big budget
-                        </h3>
-
-                        <p>
-                            Why credibility, consistency and customer experience matter
-                            long before a business reaches scale.
-                        </p>
-
-                        <span class="insight-card__status">Insight coming soon</span>
-                    </article>
-
-                    <article class="insight-card">
-                        <span class="insight-card__category">Finance</span>
-
-                        <h3>
-                            Financial clarity is more important than simply making sales
-                        </h3>
-
-                        <p>
-                            Why understanding costs, cash flow and profitability matters
-                            when building a sustainable business.
-                        </p>
-
-                        <span class="insight-card__status">Insight coming soon</span>
-                    </article>
-
-                    <article class="insight-card">
-                        <span class="insight-card__category">Technology</span>
-
-                        <h3>
-                            Technology should solve a business problem, not create another one
-                        </h3>
-
-                        <p>
-                            Thinking about digital products from the problem first — before
-                            choosing frameworks, features or technical complexity.
-                        </p>
-
-                        <span class="insight-card__status">Insight coming soon</span>
-                    </article>
-
-                </div>
-            </div>
-        </section>
-
-
         <section class="contact section" id="contact">
             <div class="container contact__container">
 
