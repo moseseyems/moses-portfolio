@@ -14,6 +14,7 @@ import {
 } from './router/router';
 import { getProjectBySlug } from './data/projects';
 import { ProjectDetails } from './pages/public/ProjectDetails';
+import { initializeContentStorage } from './services/contentServices';
 
 const appElement = document.querySelector<HTMLDivElement>('#app');
 
@@ -70,6 +71,8 @@ function renderPage(route: string): void {
 initializeRouter((route) => {
     renderPage(route);
 });
+
+initializeContentStorage();
 
 renderPage(getCurrentRoute());
 
