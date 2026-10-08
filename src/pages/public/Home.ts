@@ -1,4 +1,5 @@
 import { createFeaturedProjects } from '../../components/FeaturedProjects';
+import { createInsights } from '../../components/Insights';
 
 export function Home(): string {
     return `
@@ -443,6 +444,8 @@ export function Home(): string {
         </section>
 
         ${createFeaturedProjects()}
+
+        ${createInsights()}
         
         <section class="contact section" id="contact">
             <div class="container contact__container">

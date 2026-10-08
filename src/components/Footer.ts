@@ -25,6 +25,7 @@ export function Footer(): string {
                     <a href="#experience">Experience</a>
                     <a href="#ventures">Ventures</a>
                     <a href="#projects">Projects</a>
+                    <a href="#insights">Insights</a>
                     <a href="#contact">Contact</a>
                     </div>
 

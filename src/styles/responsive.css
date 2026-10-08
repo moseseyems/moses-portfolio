@@ -421,3 +421,51 @@
         border-bottom: 0;
     }
 }
+
+
+/* =========================================================
+   CMS PUBLIC FEATURES — RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 767px) {
+    .project-filters,
+    .insight-filters {
+        gap: 0.55rem;
+        margin-bottom: 1.75rem;
+    }
+
+    .content-filter {
+        padding: 0.6rem 0.8rem;
+        font-size: 0.75rem;
+    }
+
+    .insight-card__meta {
+        align-items: flex-start;
+        margin-bottom: 1.5rem;
+    }
+
+    .blog-details__hero {
+        padding: 3.5rem 0;
+    }
+
+    .blog-details__back {
+        margin-bottom: 2rem;
+    }
+
+    .blog-details__title {
+        font-size: clamp(2.5rem, 12vw, 3.8rem);
+    }
+
+    .blog-details__excerpt {
+        font-size: 1rem;
+    }
+
+    .blog-details__content {
+        padding: 3.5rem 0 5rem;
+    }
+
+    .blog-details__body p {
+        font-size: 1rem;
+        line-height: 1.8;
+    }
+}
