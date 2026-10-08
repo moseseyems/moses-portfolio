@@ -16,12 +16,22 @@ import {
     initializeAdminLogin,
 } from './components/AdminController';
 
+import {
+    initializeAdminCrud,
+} from './components/AdminCrudController';
+
 import { Home } from './pages/public/Home';
 import { ProjectDetails } from './pages/public/ProjectDetails';
 import { BlogDetails } from './pages/public/BlogDetails';
 
 import { AdminLogin } from './pages/admin/AdminLogin';
 import { AdminDashboard } from './pages/admin/AdminDashboard';
+import { AdminProjects } from './pages/admin/AdminProjects';
+import { AdminBlog } from './pages/admin/AdminBlog';
+import {
+    AdminProjectEditor,
+    AdminBlogEditor,
+} from './pages/admin/AdminContentForm';
 import { AdminPlaceholder } from './pages/admin/AdminPlaceholder';
 
 import {
@@ -36,6 +46,8 @@ import {
 import {
     getProjectBySlug,
     getBlogPostBySlug,
+    projectService,
+    blogService,
     initializeContentStorage,
 } from './services/contentServices';
 
@@ -149,52 +161,98 @@ function renderAdminPage(route: string): void {
         return;
     }
 
+    const routeParts =
+        route
+            .replace(/^#admin\/?/, '')
+            .split('/')
+            .filter(Boolean);
+
     const section =
         getAdminSection(route) ??
         'dashboard';
 
     let content: string;
+    let activeSection = section;
 
-    switch (section) {
-        case 'projects':
-            content = AdminPlaceholder({
-                eyebrow: 'Content',
-                title: 'Projects',
-                description:
-                    'Create, edit and remove portfolio projects.',
-            });
-            break;
+    if (
+        routeParts[0] === 'projects' &&
+        routeParts[1] === 'new'
+    ) {
+        content = AdminProjectEditor();
+        activeSection = 'projects';
+    } else if (
+        routeParts[0] === 'projects' &&
+        routeParts[1] === 'edit' &&
+        routeParts[2]
+    ) {
+        const project =
+            projectService.getById(
+                routeParts[2]
+            );
 
-        case 'blog':
-            content = AdminPlaceholder({
-                eyebrow: 'Content',
-                title: 'Insights',
-                description:
-                    'Create, edit, publish and remove blog content.',
-            });
-            break;
+        content = project
+            ? AdminProjectEditor(project)
+            : AdminProjects();
 
-        case 'messages':
-            content = AdminPlaceholder({
-                eyebrow: 'Communication',
-                title: 'Message Inbox',
-                description:
-                    'Read, archive and manage portfolio enquiries.',
-            });
-            break;
+        activeSection = 'projects';
+    } else if (
+        routeParts[0] === 'blog' &&
+        routeParts[1] === 'new'
+    ) {
+        content = AdminBlogEditor();
+        activeSection = 'blog';
+    } else if (
+        routeParts[0] === 'blog' &&
+        routeParts[1] === 'edit' &&
+        routeParts[2]
+    ) {
+        const post =
+            blogService.getById(
+                routeParts[2]
+            );
 
-        default:
-            content = AdminDashboard();
-            break;
+        content = post
+            ? AdminBlogEditor(post)
+            : AdminBlog();
+
+        activeSection = 'blog';
+    } else {
+        switch (section) {
+            case 'projects':
+                content = AdminProjects();
+                break;
+
+            case 'blog':
+                content = AdminBlog();
+                break;
+
+            case 'messages':
+                content = AdminPlaceholder({
+                    eyebrow: 'Communication',
+                    title: 'Message Inbox',
+                    description:
+                        'Read, archive and manage portfolio enquiries.',
+                });
+                break;
+
+            default:
+                content = AdminDashboard();
+                activeSection = 'dashboard';
+                break;
+        }
     }
 
     app.innerHTML =
         AdminLayout(
             content,
-            section
+            activeSection
         );
 
     initializeAdminControls();
+
+    initializeAdminCrud(
+        renderAdminPage
+    );
 
     window.scrollTo({
         top: 0,
