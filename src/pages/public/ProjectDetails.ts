@@ -2,7 +2,7 @@ import type { Project } from '../../models/Project';
 
 export function ProjectDetails(project: Project): string {
     return `
-        <main class="project-details">
+        <div class="project-details">
             <section class="project-details__hero">
                 <div class="container">
                     <a href="#projects" class="project-details__back">
@@ -140,6 +140,6 @@ export function ProjectDetails(project: Project): string {
                     </div>
                 </section>
             ` : ''}
-        </main>
+        </div>
     `;
 }

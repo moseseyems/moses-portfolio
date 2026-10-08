@@ -519,3 +519,29 @@ textarea.form-control {
 .project-card--featured .project-card__link:hover {
     color: #7db7ff;
 }
+
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+.mobile-menu-button:focus-visible,
+.mobile-nav__link:focus-visible,
+.site-footer a:focus-visible,
+.project-details__back:focus-visible,
+.project-details__action:focus-visible,
+.contact__email:focus-visible {
+    outline: 3px solid var(--color-primary-light);
+    outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}

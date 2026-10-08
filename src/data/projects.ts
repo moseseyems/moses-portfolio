@@ -23,8 +23,6 @@ export const projects: Project[] = [
         'Prisma'
         ],
 
-        image: `${import.meta.env.BASE_URL}images/projects/eymonk-audit-system.webp`,
-
         featured: true,
 
         caseStudy: {
@@ -100,8 +98,6 @@ export const projects: Project[] = [
         'CSS'
         ],
 
-        image: `${import.meta.env.BASE_URL}images/projects/beauty-brand.webp`,
-
         githubUrl:
         'https://github.com/moseseyems/beautyBrand',
         liveUrl: 'https://moseseyems.github.io/beautyBrand/',
@@ -176,7 +172,6 @@ export const projects: Project[] = [
         'CSS'
         ],
 
-        image: `${import.meta.env.BASE_URL}images/projects/personal-blog.webp`,
         githubUrl: 'https://github.com/moseseyems/personal-blog-app',
         liveUrl: 'https://moseseyems.github.io/personal-blog-app/',
         featured: true,
