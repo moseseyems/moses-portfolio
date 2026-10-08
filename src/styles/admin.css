@@ -706,3 +706,222 @@
         min-width: 720px;
     }
 }
+
+
+/* =========================================================
+   MESSAGE INBOX
+   ========================================================= */
+
+.admin-inbox-summary {
+    display: flex;
+    gap: 0.45rem;
+    align-items: baseline;
+    padding: 0.75rem 1rem;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+}
+
+.admin-inbox-summary strong {
+    color: #0755a5;
+    font-size: 1.5rem;
+}
+
+.admin-inbox-summary span {
+    color: #64748b;
+    font-size: 0.8rem;
+    font-weight: 700;
+}
+
+.admin-inbox-section {
+    display: grid;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.admin-inbox-section__heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.admin-inbox-section__heading h2 {
+    margin: 0;
+    color: #071d35;
+    font-size: 1.05rem;
+}
+
+.admin-inbox-section__heading span {
+    color: #7a8999;
+    font-size: 0.78rem;
+    font-weight: 700;
+}
+
+.admin-message-table {
+    min-width: 960px;
+}
+
+.admin-message-row--unread {
+    background: #f7fbff;
+}
+
+.admin-message-row--unread td strong {
+    font-weight: 800;
+}
+
+.admin-badge--unread {
+    color: #0755a5;
+    background: #e8f2ff;
+}
+
+.admin-badge--read {
+    color: #53657a;
+    background: #edf1f5;
+}
+
+.admin-badge--archived {
+    color: #7a5d00;
+    background: #fff8db;
+}
+
+.admin-empty-state--compact {
+    padding: 2rem;
+}
+
+.admin-message-detail__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.25rem;
+}
+
+.admin-back-link {
+    color: #0755a5;
+    font-size: 0.82rem;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.admin-back-link:hover {
+    text-decoration: underline;
+}
+
+.admin-message-detail {
+    overflow: hidden;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+}
+
+.admin-message-detail__header {
+    padding: 2rem;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.admin-message-detail__header h1 {
+    max-width: 800px;
+    margin: 0.6rem 0 1.5rem;
+    color: #071d35;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    line-height: 1.1;
+    letter-spacing: -0.035em;
+}
+
+.admin-message-detail__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2.5rem;
+}
+
+.admin-message-detail__meta div {
+    display: grid;
+    gap: 0.25rem;
+}
+
+.admin-message-detail__meta span {
+    color: #8a98a8;
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.admin-message-detail__meta strong,
+.admin-message-detail__meta a {
+    color: #243b53;
+    font-size: 0.85rem;
+}
+
+.admin-message-detail__meta a {
+    color: #0755a5;
+    text-decoration: none;
+}
+
+.admin-message-detail__body {
+    max-width: 850px;
+    padding: 2.5rem 2rem;
+}
+
+.admin-message-detail__body p {
+    margin: 0 0 1.2rem;
+    color: #42566c;
+    font-size: 1rem;
+    line-height: 1.8;
+    white-space: pre-wrap;
+}
+
+.admin-message-detail__body p:last-child {
+    margin-bottom: 0;
+}
+
+.admin-message-detail__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    padding: 1.5rem 2rem;
+    background: #f8fafc;
+    border-top: 1px solid #e2e8f0;
+}
+
+.admin-danger-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 0.7rem 1rem;
+    color: #b42318;
+    background: #ffffff;
+    border: 1px solid #f0b7b2;
+    border-radius: 8px;
+    font: inherit;
+    font-size: 0.84rem;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.admin-danger-button:hover {
+    color: #ffffff;
+    background: #b42318;
+    border-color: #b42318;
+}
+
+@media (max-width: 760px) {
+    .admin-inbox-summary {
+        align-self: flex-start;
+    }
+
+    .admin-message-detail__header,
+    .admin-message-detail__body,
+    .admin-message-detail__actions {
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+    }
+
+    .admin-message-detail__actions {
+        flex-direction: column;
+    }
+
+    .admin-message-detail__actions button {
+        width: 100%;
+    }
+}

@@ -20,6 +20,10 @@ import {
     initializeAdminCrud,
 } from './components/AdminCrudController';
 
+import {
+    initializeAdminMessages,
+} from './components/AdminMessageController';
+
 import { Home } from './pages/public/Home';
 import { ProjectDetails } from './pages/public/ProjectDetails';
 import { BlogDetails } from './pages/public/BlogDetails';
@@ -29,10 +33,13 @@ import { AdminDashboard } from './pages/admin/AdminDashboard';
 import { AdminProjects } from './pages/admin/AdminProjects';
 import { AdminBlog } from './pages/admin/AdminBlog';
 import {
+    AdminMessages,
+    AdminMessageDetails,
+} from './pages/admin/AdminMessages';
+import {
     AdminProjectEditor,
     AdminBlogEditor,
 } from './pages/admin/AdminContentForm';
-import { AdminPlaceholder } from './pages/admin/AdminPlaceholder';
 
 import {
     getCurrentRoute,
@@ -48,6 +55,7 @@ import {
     getBlogPostBySlug,
     projectService,
     blogService,
+    messageService,
     initializeContentStorage,
 } from './services/contentServices';
 
@@ -226,14 +234,25 @@ function renderAdminPage(route: string): void {
                 content = AdminBlog();
                 break;
 
-            case 'messages':
-                content = AdminPlaceholder({
-                    eyebrow: 'Communication',
-                    title: 'Message Inbox',
-                    description:
-                        'Read, archive and manage portfolio enquiries.',
-                });
+            case 'messages': {
+                if (
+                    routeParts[0] === 'messages' &&
+                    routeParts[1]
+                ) {
+                    const message =
+                        messageService.getById(
+                            routeParts[1]
+                        );
+
+                    content = message
+                        ? AdminMessageDetails(message)
+                        : AdminMessages();
+                } else {
+                    content = AdminMessages();
+                }
+
                 break;
+            }
 
             default:
                 content = AdminDashboard();
@@ -251,6 +270,10 @@ function renderAdminPage(route: string): void {
     initializeAdminControls();
 
     initializeAdminCrud(
+        renderAdminPage
+    );
+
+    initializeAdminMessages(
         renderAdminPage
     );
 
