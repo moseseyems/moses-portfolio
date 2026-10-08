@@ -6,18 +6,31 @@ import './styles/admin.css';
 import './styles/responsive.css';
 
 import { PublicLayout } from './components/PublicLayout';
+import { AdminLayout } from './components/AdminLayout';
 import { initializeMobileNavigation } from './components/MobileNavigation';
 import { initializePublicInteractions } from './components/PublicInteractions';
 import { initializeContactForm } from './components/ContactFormController';
+
+import {
+    initializeAdminControls,
+    initializeAdminLogin,
+} from './components/AdminController';
+
 import { Home } from './pages/public/Home';
 import { ProjectDetails } from './pages/public/ProjectDetails';
 import { BlogDetails } from './pages/public/BlogDetails';
+
+import { AdminLogin } from './pages/admin/AdminLogin';
+import { AdminDashboard } from './pages/admin/AdminDashboard';
+import { AdminPlaceholder } from './pages/admin/AdminPlaceholder';
 
 import {
     getCurrentRoute,
     getProjectSlug,
     getBlogSlug,
+    getAdminSection,
     initializeRouter,
+    isAdminRoute,
 } from './router/router';
 
 import {
@@ -25,6 +38,8 @@ import {
     getBlogPostBySlug,
     initializeContentStorage,
 } from './services/contentServices';
+
+import { authService } from './services/AuthService';
 
 const appElement =
     document.querySelector<HTMLDivElement>('#app');
@@ -86,7 +101,8 @@ function initializePublicPage(): void {
 function scrollToRouteSection(route: string): void {
     if (
         route.startsWith('#project/') ||
-        route.startsWith('#blog/')
+        route.startsWith('#blog/') ||
+        isAdminRoute(route)
     ) {
         return;
     }
@@ -114,7 +130,85 @@ function scrollToRouteSection(route: string): void {
     });
 }
 
+function renderAdminPage(route: string): void {
+    if (!authService.isAuthenticated()) {
+        app.innerHTML = AdminLogin();
+
+        initializeAdminLogin(() => {
+            window.location.hash = 'admin';
+
+            renderPage('#admin');
+        });
+
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'instant',
+        });
+
+        return;
+    }
+
+    const section =
+        getAdminSection(route) ??
+        'dashboard';
+
+    let content: string;
+
+    switch (section) {
+        case 'projects':
+            content = AdminPlaceholder({
+                eyebrow: 'Content',
+                title: 'Projects',
+                description:
+                    'Create, edit and remove portfolio projects.',
+            });
+            break;
+
+        case 'blog':
+            content = AdminPlaceholder({
+                eyebrow: 'Content',
+                title: 'Insights',
+                description:
+                    'Create, edit, publish and remove blog content.',
+            });
+            break;
+
+        case 'messages':
+            content = AdminPlaceholder({
+                eyebrow: 'Communication',
+                title: 'Message Inbox',
+                description:
+                    'Read, archive and manage portfolio enquiries.',
+            });
+            break;
+
+        default:
+            content = AdminDashboard();
+            break;
+    }
+
+    app.innerHTML =
+        AdminLayout(
+            content,
+            section
+        );
+
+    initializeAdminControls();
+
+    window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: 'instant',
+    });
+}
+
 function renderPage(route: string): void {
+    if (isAdminRoute(route)) {
+        renderAdminPage(route);
+        return;
+    }
+
     const projectSlug =
         getProjectSlug(route);
 
