@@ -2,6 +2,10 @@ import {
     projectService,
 } from '../../services/contentServices';
 
+import {
+    escapeHtml,
+} from '../../utils/html';
+
 export function AdminProjects(): string {
     const projects =
         projectService.getAll();
@@ -54,16 +58,16 @@ export function AdminProjects(): string {
                                                     <tr>
                                                         <td>
                                                             <strong>
-                                                                ${project.title}
+                                                                ${escapeHtml(project.title)}
                                                             </strong>
 
                                                             <span>
-                                                                ${project.slug}
+                                                                ${escapeHtml(project.slug)}
                                                             </span>
                                                         </td>
 
                                                         <td>
-                                                            ${project.category}
+                                                            ${escapeHtml(project.category)}
                                                         </td>
 
                                                         <td>

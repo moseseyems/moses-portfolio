@@ -121,6 +121,12 @@ function buildProjectFormData(
             '#project-live'
         );
 
+    const imageUrl =
+        getInput(
+            form,
+            '#project-image'
+        );
+
     const featured =
         getInput(
             form,
@@ -137,6 +143,7 @@ function buildProjectFormData(
         !technologies ||
         !githubUrl ||
         !liveUrl ||
+        !imageUrl ||
         !featured
     ) {
         return null;
@@ -174,6 +181,8 @@ function buildProjectFormData(
             githubUrl.value.trim() || undefined,
         liveUrl:
             liveUrl.value.trim() || undefined,
+        imageUrl:
+            imageUrl.value.trim() || undefined,
         featured: featured.checked,
         year: projectYear,
     };
@@ -197,6 +206,9 @@ function buildBlogFormData(
     const tags =
         getInput(form, '#blog-tags');
 
+    const imageUrl =
+        getInput(form, '#blog-image');
+
     const published =
         getInput(form, '#blog-published');
 
@@ -206,6 +218,7 @@ function buildBlogFormData(
         !excerpt ||
         !content ||
         !tags ||
+        !imageUrl ||
         !published
     ) {
         return null;
@@ -230,6 +243,8 @@ function buildBlogFormData(
         tags: parseCommaSeparated(
             tags.value
         ),
+        imageUrl:
+            imageUrl.value.trim() || undefined,
         published: published.checked,
     };
 }
@@ -266,6 +281,8 @@ function saveContent(
                             data.githubUrl,
                         liveUrl:
                             data.liveUrl,
+                        imageUrl:
+                            data.imageUrl,
                         featured:
                             data.featured,
                         year: data.year,
@@ -290,6 +307,8 @@ function saveContent(
                     data.githubUrl,
                 liveUrl:
                     data.liveUrl,
+                imageUrl:
+                    data.imageUrl,
                 featured:
                     data.featured,
                 year: data.year,
@@ -320,6 +339,8 @@ function saveContent(
                         excerpt: data.excerpt,
                         content: data.content,
                         tags: data.tags,
+                        imageUrl:
+                            data.imageUrl,
                         published:
                             data.published,
                         publishedAt:
@@ -339,6 +360,8 @@ function saveContent(
                 excerpt: data.excerpt,
                 content: data.content,
                 tags: data.tags,
+                imageUrl:
+                    data.imageUrl,
                 published: data.published,
                 publishedAt: now,
                 updatedAt: now,

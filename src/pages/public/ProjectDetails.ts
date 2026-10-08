@@ -1,4 +1,5 @@
 import type { Project } from '../../models/Project';
+import { escapeHtml, safeUrl } from '../../utils/html';
 
 export function ProjectDetails(project: Project): string {
     return `
@@ -10,32 +11,41 @@ export function ProjectDetails(project: Project): string {
                     </a>
 
                     <div class="project-details__meta">
-                        <span>${project.category}</span>
+                        <span>${escapeHtml(project.category)}</span>
                         <span>${project.year}</span>
                     </div>
 
                     <h1 class="project-details__title">
-                        ${project.title}
+                        ${escapeHtml(project.title)}
                     </h1>
 
                     <p class="project-details__description">
-                        ${project.shortDescription}
+                        ${escapeHtml(project.shortDescription)}
                     </p>
 
                     <div class="project-details__technologies">
                         ${project.technologies
                             .map(
                                 (technology) =>
-                                    `<span class="project-details__technology">${technology}</span>`
+                                    `<span class="project-details__technology">${escapeHtml(technology)}</span>`
                             )
                             .join('')}
                     </div>
+
+                    ${project.imageUrl ? `
+                        <figure class="project-details__featured-image">
+                            <img
+                                src="${safeUrl(project.imageUrl)}"
+                                alt="${escapeHtml(project.title)}"
+                            >
+                        </figure>
+                    ` : ''}
 
                     ${project.githubUrl || project.liveUrl ? `
                         <div class="project-details__actions">
                             ${project.liveUrl ? `
                                 <a
-                                    href="${project.liveUrl}"
+                                    href="${safeUrl(project.liveUrl)}"
                                     class="project-details__action project-details__action--primary"
                                     target="_blank"
                                     rel="noopener noreferrer"
@@ -47,7 +57,7 @@ export function ProjectDetails(project: Project): string {
 
                             ${project.githubUrl ? `
                                 <a
-                                    href="${project.githubUrl}"
+                                    href="${safeUrl(project.githubUrl)}"
                                     class="project-details__action project-details__action--secondary"
                                     target="_blank"
                                     rel="noopener noreferrer"
@@ -67,22 +77,22 @@ export function ProjectDetails(project: Project): string {
 
                         <div class="project-details__section">
                             <span class="project-details__eyebrow">Project Overview</span>
-                            <p>${project.caseStudy.overview}</p>
+                            <p>${escapeHtml(project.caseStudy.overview)}</p>
                         </div>
 
                         <div class="project-details__section">
                             <span class="project-details__eyebrow">The Problem</span>
-                            <p>${project.caseStudy.problem}</p>
+                            <p>${escapeHtml(project.caseStudy.problem)}</p>
                         </div>
 
                         <div class="project-details__section">
                             <span class="project-details__eyebrow">The Solution</span>
-                            <p>${project.caseStudy.solution}</p>
+                            <p>${escapeHtml(project.caseStudy.solution)}</p>
                         </div>
 
                         <div class="project-details__section">
                             <span class="project-details__eyebrow">My Role</span>
-                            <p>${project.caseStudy.role}</p>
+                            <p>${escapeHtml(project.caseStudy.role)}</p>
                         </div>
 
                         <div class="project-details__section">
@@ -90,7 +100,7 @@ export function ProjectDetails(project: Project): string {
 
                             <ul class="project-details__list">
                                 ${project.caseStudy.keyFeatures
-                                    .map((feature) => `<li>${feature}</li>`)
+                                    .map((feature) => `<li>${escapeHtml(feature)}</li>`)
                                     .join('')}
                             </ul>
                         </div>
@@ -100,7 +110,7 @@ export function ProjectDetails(project: Project): string {
 
                             <ul class="project-details__list">
                                 ${project.caseStudy.challenges
-                                    .map((challenge) => `<li>${challenge}</li>`)
+                                    .map((challenge) => `<li>${escapeHtml(challenge)}</li>`)
                                     .join('')}
                             </ul>
                         </div>
@@ -110,7 +120,7 @@ export function ProjectDetails(project: Project): string {
 
                             <ul class="project-details__list">
                                 ${project.caseStudy.outcomes
-                                    .map((outcome) => `<li>${outcome}</li>`)
+                                    .map((outcome) => `<li>${escapeHtml(outcome)}</li>`)
                                     .join('')}
                             </ul>
                         </div>
@@ -125,8 +135,8 @@ export function ProjectDetails(project: Project): string {
                                             (screenshot, index) => `
                                                 <figure class="project-details__screenshot">
                                                     <img
-                                                        src="${screenshot}"
-                                                        alt="${project.title} screenshot ${index + 1}"
+                                                        src="${safeUrl(screenshot)}"
+                                                        alt="${escapeHtml(project.title)} screenshot ${index + 1}"
                                                         loading="lazy"
                                                     >
                                                 </figure>

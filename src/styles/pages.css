@@ -1591,3 +1591,17 @@
     background: rgba(239, 68, 68, 0.13);
     border: 1px solid rgba(252, 165, 165, 0.35);
 }
+
+.project-details__featured-image,
+.blog-details__image {
+    margin-top: 2rem;
+    overflow: hidden;
+    border-radius: 1rem;
+}
+
+.project-details__featured-image img,
+.blog-details__image img {
+    display: block;
+    width: 100%;
+    height: auto;
+}

@@ -1,6 +1,7 @@
 import { createProjectCard } from './ProjectCard';
 import { getProjects, getPublishedBlogPosts } from '../services/contentServices';
 import { calculateReadingTime } from '../utils/readingTime';
+import { escapeHtml, safeUrl } from '../utils/html';
 import type { BlogPost } from '../models/BlogPost';
 
 function createInsightCard(post: BlogPost): string {
@@ -8,9 +9,18 @@ function createInsightCard(post: BlogPost): string {
 
     return `
         <article class="insight-card">
+            ${post.imageUrl ? `
+                <div class="insight-card__image">
+                    <img
+                        src="${safeUrl(post.imageUrl)}"
+                        alt="${escapeHtml(post.title)}"
+                        loading="lazy"
+                    >
+                </div>
+            ` : ''}
             <div class="insight-card__meta">
                 <span class="insight-card__category">
-                    ${primaryTag}
+                    ${escapeHtml(primaryTag)}
                 </span>
 
                 <span class="insight-card__reading-time">
@@ -18,16 +28,16 @@ function createInsightCard(post: BlogPost): string {
                 </span>
             </div>
 
-            <h3>${post.title}</h3>
+            <h3>${escapeHtml(post.title)}</h3>
 
-            <p>${post.excerpt}</p>
+            <p>${escapeHtml(post.excerpt)}</p>
 
             <div class="insight-card__tags">
                 ${post.tags
                     .map(
                         tag => `
                             <span class="insight-card__tag">
-                                ${tag}
+                                ${escapeHtml(tag)}
                             </span>
                         `
                     )
@@ -37,7 +47,7 @@ function createInsightCard(post: BlogPost): string {
             <button
                 class="insight-card__link"
                 type="button"
-                data-blog-slug="${post.slug}"
+                data-blog-slug="${escapeHtml(post.slug)}"
             >
                 Read Insight
                 <span aria-hidden="true">→</span>

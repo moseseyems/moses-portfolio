@@ -14,6 +14,7 @@ export interface ProjectFormData
     technologies: string[];
     githubUrl?: string;
     liveUrl?: string;
+    imageUrl?: string;
     featured: boolean;
     year: number;
 }
@@ -24,6 +25,7 @@ export interface BlogFormData
     excerpt: string;
     content: string;
     tags: string[];
+    imageUrl?: string;
     published: boolean;
 }
 

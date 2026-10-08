@@ -6,6 +6,10 @@ import {
     messageService,
 } from '../../services/contentServices';
 
+import {
+    escapeHtml,
+} from '../../utils/html';
+
 function formatMessageDate(
     value: string
 ): string {
@@ -49,24 +53,25 @@ function messageRow(
         >
             <td>
                 <strong>
-                    ${message.name}
+                    ${escapeHtml(message.name)}
                 </strong>
 
                 <span>
-                    ${message.email}
+                    ${escapeHtml(message.email)}
                 </span>
             </td>
 
             <td>
                 <strong>
-                    ${message.subject}
+                    ${escapeHtml(message.subject)}
                 </strong>
 
                 <span>
-                    ${message.message.length > 70
-                        ? `${message.message.slice(0, 70)}…`
-                        : message.message
-                    }
+                    ${escapeHtml(
+                        message.message.length > 70
+                            ? `${message.message.slice(0, 70)}…`
+                            : message.message
+                    )}
                 </span>
             </td>
 
@@ -330,7 +335,7 @@ export function AdminMessageDetails(
                     </p>
 
                     <h1>
-                        ${message.subject}
+                        ${escapeHtml(message.subject)}
                     </h1>
 
                     <div class="admin-message-detail__meta">
@@ -338,13 +343,13 @@ export function AdminMessageDetails(
                             <span>From</span>
 
                             <strong>
-                                ${message.name}
+                                ${escapeHtml(message.name)}
                             </strong>
 
                             <a
-                                href="mailto:${message.email}"
+                                href="mailto:${escapeHtml(message.email)}"
                             >
-                                ${message.email}
+                                ${escapeHtml(message.email)}
                             </a>
                         </div>
 
@@ -366,7 +371,7 @@ export function AdminMessageDetails(
                         .filter(Boolean)
                         .map(
                             paragraph =>
-                                `<p>${paragraph}</p>`
+                                `<p>${escapeHtml(paragraph)}</p>`
                         )
                         .join('')}
                 </div>

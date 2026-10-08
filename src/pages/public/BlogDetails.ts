@@ -1,5 +1,6 @@
 import type { BlogPost } from '../../models/BlogPost';
 import { calculateReadingTime } from '../../utils/readingTime';
+import { escapeHtml, safeUrl } from '../../utils/html';
 
 function formatPublishedDate(date: string): string {
     return new Intl.DateTimeFormat(
@@ -17,7 +18,7 @@ function createParagraphs(content: string): string {
         .split(/\n\s*\n/)
         .map(
             paragraph => `
-                <p>${paragraph.trim()}</p>
+                <p>${escapeHtml(paragraph.trim())}</p>
             `
         )
         .join('');
@@ -46,24 +47,35 @@ export function BlogDetails(post: BlogPost): string {
                     </div>
 
                     <h1 class="blog-details__title">
-                        ${post.title}
+                        ${escapeHtml(post.title)}
                     </h1>
 
                     <p class="blog-details__excerpt">
-                        ${post.excerpt}
+                        ${escapeHtml(post.excerpt)}
                     </p>
 
                     <div class="blog-details__tags">
                         ${post.tags
                             .map(
                                 tag => `
-                                    <span>${tag}</span>
+                                    <span>${escapeHtml(tag)}</span>
                                 `
                             )
                             .join('')}
                     </div>
                 </div>
             </header>
+
+            ${post.imageUrl ? `
+                <div class="container">
+                    <figure class="blog-details__image">
+                        <img
+                            src="${safeUrl(post.imageUrl)}"
+                            alt="${escapeHtml(post.title)}"
+                        >
+                    </figure>
+                </div>
+            ` : ''}
 
             <section class="blog-details__content">
                 <div class="container blog-details__body">

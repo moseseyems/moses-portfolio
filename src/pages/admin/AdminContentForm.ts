@@ -11,6 +11,10 @@ import type {
     BlogPost,
 } from '../../models/BlogPost';
 
+import {
+    escapeHtml,
+} from '../../utils/html';
+
 const projectCategories: ProjectCategory[] = [
     'Business Systems',
     'Frontend',
@@ -26,7 +30,7 @@ function projectForm(
             class="admin-content-form"
             id="admin-content-form"
             data-content-type="project"
-            data-content-id="${project?.id ?? ''}"
+            data-content-id="${escapeHtml(project?.id ?? '')}"
             novalidate
         >
             <div class="admin-form-grid">
@@ -39,7 +43,7 @@ function projectForm(
                         id="content-title"
                         name="title"
                         type="text"
-                        value="${project?.title ?? ''}"
+                        value="${escapeHtml(project?.title ?? '')}"
                         required
                     >
                 </div>
@@ -53,7 +57,7 @@ function projectForm(
                         id="content-slug"
                         name="slug"
                         type="text"
-                        value="${project?.slug ?? ''}"
+                        value="${escapeHtml(project?.slug ?? '')}"
                         required
                     >
                 </div>
@@ -84,7 +88,7 @@ function projectForm(
                         name="shortDescription"
                         rows="3"
                         required
-                    >${project?.shortDescription ?? ''}</textarea>
+                    >${escapeHtml(project?.shortDescription ?? '')}</textarea>
                 </div>
 
                 <div class="admin-form-field admin-form-field--wide">
@@ -97,7 +101,7 @@ function projectForm(
                         name="description"
                         rows="5"
                         required
-                    >${project?.description ?? ''}</textarea>
+                    >${escapeHtml(project?.description ?? '')}</textarea>
                 </div>
 
                 <div class="admin-form-field">
@@ -138,7 +142,7 @@ function projectForm(
                         id="project-technologies"
                         name="technologies"
                         type="text"
-                        value="${project?.technologies.join(', ') ?? ''}"
+                        value="${escapeHtml(project?.technologies.join(', ') ?? '')}"
                         placeholder="TypeScript, HTML, CSS"
                         required
                     >
@@ -157,7 +161,7 @@ function projectForm(
                         id="project-github"
                         name="githubUrl"
                         type="url"
-                        value="${project?.githubUrl ?? ''}"
+                        value="${escapeHtml(project?.githubUrl ?? '')}"
                         placeholder="https://github.com/..."
                     >
                 </div>
@@ -171,9 +175,27 @@ function projectForm(
                         id="project-live"
                         name="liveUrl"
                         type="url"
-                        value="${project?.liveUrl ?? ''}"
+                        value="${escapeHtml(project?.liveUrl ?? '')}"
                         placeholder="https://..."
                     >
+                </div>
+
+                <div class="admin-form-field admin-form-field--wide">
+                    <label for="project-image">
+                        Image URL
+                    </label>
+
+                    <input
+                        id="project-image"
+                        name="imageUrl"
+                        type="url"
+                        value="${escapeHtml(project?.imageUrl ?? '')}"
+                        placeholder="https://example.com/project-image.jpg"
+                    >
+
+                    <small>
+                        Optional image displayed with this project.
+                    </small>
                 </div>
 
                 <label class="admin-checkbox admin-form-field--wide">
@@ -228,7 +250,7 @@ function blogForm(
             class="admin-content-form"
             id="admin-content-form"
             data-content-type="blog"
-            data-content-id="${post?.id ?? ''}"
+            data-content-id="${escapeHtml(post?.id ?? '')}"
             novalidate
         >
             <div class="admin-form-grid">
@@ -241,7 +263,7 @@ function blogForm(
                         id="content-title"
                         name="title"
                         type="text"
-                        value="${post?.title ?? ''}"
+                        value="${escapeHtml(post?.title ?? '')}"
                         required
                     >
                 </div>
@@ -255,7 +277,7 @@ function blogForm(
                         id="content-slug"
                         name="slug"
                         type="text"
-                        value="${post?.slug ?? ''}"
+                        value="${escapeHtml(post?.slug ?? '')}"
                         required
                     >
 
@@ -274,7 +296,7 @@ function blogForm(
                         name="excerpt"
                         rows="3"
                         required
-                    >${post?.excerpt ?? ''}</textarea>
+                    >${escapeHtml(post?.excerpt ?? '')}</textarea>
                 </div>
 
                 <div class="admin-form-field admin-form-field--wide">
@@ -287,7 +309,7 @@ function blogForm(
                         name="content"
                         rows="14"
                         required
-                    >${post?.content ?? ''}</textarea>
+                    >${escapeHtml(post?.content ?? '')}</textarea>
                 </div>
 
                 <div class="admin-form-field admin-form-field--wide">
@@ -299,13 +321,31 @@ function blogForm(
                         id="blog-tags"
                         name="tags"
                         type="text"
-                        value="${post?.tags.join(', ') ?? ''}"
+                        value="${escapeHtml(post?.tags.join(', ') ?? '')}"
                         placeholder="Business, Finance"
                         required
                     >
 
                     <small>
                         Separate tags with commas.
+                    </small>
+                </div>
+
+                <div class="admin-form-field admin-form-field--wide">
+                    <label for="blog-image">
+                        Image URL
+                    </label>
+
+                    <input
+                        id="blog-image"
+                        name="imageUrl"
+                        type="url"
+                        value="${escapeHtml(post?.imageUrl ?? '')}"
+                        placeholder="https://example.com/article-image.jpg"
+                    >
+
+                    <small>
+                        Optional image displayed with this insight.
                     </small>
                 </div>
 

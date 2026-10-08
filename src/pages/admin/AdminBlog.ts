@@ -2,6 +2,10 @@ import {
     blogService,
 } from '../../services/contentServices';
 
+import {
+    escapeHtml,
+} from '../../utils/html';
+
 function formatDate(date: string): string {
     return new Intl.DateTimeFormat(
         'en-GB',
@@ -71,16 +75,16 @@ export function AdminBlog(): string {
                                                     <tr>
                                                         <td>
                                                             <strong>
-                                                                ${post.title}
+                                                                ${escapeHtml(post.title)}
                                                             </strong>
 
                                                             <span>
-                                                                ${post.slug}
+                                                                ${escapeHtml(post.slug)}
                                                             </span>
                                                         </td>
 
                                                         <td>
-                                                            ${post.tags.join(', ')}
+                                                            ${escapeHtml(post.tags.join(', '))}
                                                         </td>
 
                                                         <td>
