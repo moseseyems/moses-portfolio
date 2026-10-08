@@ -8,6 +8,7 @@ import './styles/responsive.css';
 import { PublicLayout } from './components/PublicLayout';
 import { initializeMobileNavigation } from './components/MobileNavigation';
 import { initializePublicInteractions } from './components/PublicInteractions';
+import { initializeContactForm } from './components/ContactFormController';
 import { Home } from './pages/public/Home';
 import { ProjectDetails } from './pages/public/ProjectDetails';
 import { BlogDetails } from './pages/public/BlogDetails';
@@ -79,6 +80,7 @@ document.addEventListener('click', event => {
 function initializePublicPage(): void {
     initializeMobileNavigation();
     initializePublicInteractions();
+    initializeContactForm();
 }
 
 function scrollToRouteSection(route: string): void {

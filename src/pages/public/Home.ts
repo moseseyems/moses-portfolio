@@ -1,5 +1,6 @@
 import { createFeaturedProjects } from '../../components/FeaturedProjects';
 import { createInsights } from '../../components/Insights';
+import { createContactForm } from '../../components/ContactForm';
 
 export function Home(): string {
     return `
@@ -448,39 +449,62 @@ export function Home(): string {
         ${createInsights()}
         
         <section class="contact section" id="contact">
-            <div class="container contact__container">
+            <div class="container">
 
-                <div class="contact__content">
-                    <p class="section-heading__eyebrow">
-                        Get in Touch
-                    </p>
+                <div class="contact__header">
+                    <div class="contact__content">
+                        <p class="section-heading__eyebrow">
+                            Get in Touch
+                        </p>
 
-                    <h2 class="contact__title">
-                        Let's connect and
-                        <span>create something valuable.</span>
-                    </h2>
+                        <h2 class="contact__title">
+                            Let's connect and
+                            <span>create something valuable.</span>
+                        </h2>
 
-                    <p class="contact__introduction">
-                        Whether it's a business opportunity, professional
-                        collaboration or a conversation around finance,
-                        entrepreneurship and technology, I'm open to connecting.
-                    </p>
+                        <p class="contact__introduction">
+                            Whether it's a business opportunity, professional
+                            collaboration or a conversation around finance,
+                            entrepreneurship and technology, I'm open to connecting.
+                        </p>
+                    </div>
+
+                    <div class="contact__action">
+                        <span class="contact__label">
+                            Direct contact
+                        </span>
+
+                        <a
+                            class="contact__email"
+                            href="mailto:moses@eymonkgroup.co.uk"
+                        >
+                            moses@eymonkgroup.co.uk
+                            <span aria-hidden="true">↗</span>
+                        </a>
+
+                        <p class="contact__note">
+                            Based in Scotland, United Kingdom.
+                        </p>
+                    </div>
                 </div>
 
-                <div class="contact__action">
-                    <span class="contact__label">Email</span>
+                <div class="contact__form-area">
+                    <div>
+                        <p class="contact__form-eyebrow">
+                            Send a message
+                        </p>
 
-                    <a
-                        class="contact__email"
-                        href="mailto:moses@eymonkgroup.co.uk"
-                    >
-                        moses@eymonkgroup.co.uk
-                        <span aria-hidden="true">↗</span>
-                    </a>
+                        <h3 class="contact__form-title">
+                            Tell me what you'd like to discuss.
+                        </h3>
 
-                    <p class="contact__note">
-                        Based in Scotland, United Kingdom.
-                    </p>
+                        <p class="contact__form-introduction">
+                            Complete the form and your message will be
+                            added securely to the portfolio message inbox.
+                        </p>
+                    </div>
+
+                    ${createContactForm()}
                 </div>
 
             </div>

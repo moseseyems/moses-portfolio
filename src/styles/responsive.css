@@ -469,3 +469,35 @@
         line-height: 1.8;
     }
 }
+
+
+/* =========================================================
+   CONTACT FORM — RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 900px) {
+    .contact__header,
+    .contact__form-area {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .contact__form-area {
+        margin-top: 4rem;
+        padding-top: 3rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .contact-form__row {
+        grid-template-columns: 1fr;
+    }
+
+    .contact__form-area {
+        gap: 2.5rem;
+    }
+
+    .contact-form__submit {
+        width: 100%;
+    }
+}
